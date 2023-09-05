@@ -1,3 +1,4 @@
+# Terraform ile S3 bucket oluşturmak için
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "devops-case-s3-bucket"
 
@@ -7,7 +8,7 @@ resource "aws_s3_bucket" "terraform_state" {
   }
 }
 
-# S3 bucketta sürüm oluşturmayı etkinleştirelim
+# İlk olarak, bucketta bir dosyaya yapılan her güncellemenin aslında o dosyanın yeni bir sürümünü oluşturması için S3 bucketta sürüm oluşturmayı etkinleştirelim.
 resource "aws_s3_bucket_versioning" "enabled" {
   bucket = aws_s3_bucket.terraform_state.id
 
